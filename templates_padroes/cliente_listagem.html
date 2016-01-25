@@ -11,6 +11,15 @@
 <br>
 {{objets.data_nascimento}}
 
+
+
+<form method="POST"> 
+	{% csrf_token %}
+	{{form.as_p}}
+	<button type='submit'>Altera</button>
+</form>
+
+
 <a href="{% url 'cliente_principal' %}">Voltar</a>
 
 

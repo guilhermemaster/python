@@ -18,8 +18,13 @@ def cliente(request):
 
 def cliente_update(request, pk):
 	cliente = Cliente.objects.get(pk=pk)
+
+	form = ClienteForm(request.POST or None,instance=cliente)
+	if form.is_valid():
+	   form.save()
+	   return redirect('cliente_principal')
 	#return HttpResponse('Cliente'+str(pk))
-	return render(request, 'cliente_listagem.html',{'objets': cliente})
+	return render(request, 'cliente_listagem.html',{'objets': cliente,'form':form})
 
 def create(request):
 	form = ClienteForm(request.POST or None)
