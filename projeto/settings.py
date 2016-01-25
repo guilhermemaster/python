@@ -49,28 +49,21 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
+)
+
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates_padroes'),
+)
 
 
 ROOT_URLCONF = 'projeto.urls'
 
 
-TEMPLATES = [
-    {
-    'BACKED' : 'django.template.backends.django.DjangoTemplates',
-    'DIRS':['templates_padroes',],
-    'APP_DIRS':True,
-    'OPTION':{
-        'context_processors':[
-            'django.template.context_processors.debug',
-            'django.template.context_processors.request',
-            'django.contrib.auth.context_processors.auth',
-            'django.contrib.messages.context_processors.messages',
-
-            ],
-        },
-    },
-
-]
 
 WSGI_APPLICATION = 'projeto.wsgi.application'
 

@@ -6,16 +6,18 @@
 <title>Page Title</title>
 </head>
 <body>
-<p>aqui</p>
+<p>aqui goollleee</p>
 
 {{djangomoc}}
 {{list_clientes}}
 
 <ol>
 {% for cliente in list_clientes %}
-	<li><a href="">{{cliente}}></a></li>
+	<li><a href="{% url 'cliente_update' cliente.id %}">{{cliente}}></a></li>
 {% endfor %}
 </ol>
+
+<a href="{% url 'cliente_create' %}">novo</a>
 
 
 </body>
